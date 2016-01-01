@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B10C8CC1C37466C0077F2E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8CB1C37466C0077F2E4 /* AppDelegate.swift */; };
+		4B10C8CE1C37466C0077F2E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8CD1C37466C0077F2E4 /* ViewController.swift */; };
+		4B10C8D11C37466C0077F2E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B10C8CF1C37466C0077F2E4 /* Main.storyboard */; };
+		4B10C8D31C37466C0077F2E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B10C8D21C37466C0077F2E4 /* Assets.xcassets */; };
+		4B10C8D61C37466C0077F2E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B10C8D41C37466C0077F2E4 /* LaunchScreen.storyboard */; };
+		4B10C8E11C37466C0077F2E4 /* dragAndDropListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8E01C37466C0077F2E4 /* dragAndDropListsTests.swift */; };
+		4B10C8EC1C37466C0077F2E4 /* dragAndDropListsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8EB1C37466C0077F2E4 /* dragAndDropListsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B10C8DD1C37466C0077F2E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B10C8C01C37466C0077F2E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B10C8C71C37466C0077F2E4;
+			remoteInfo = dragAndDropLists;
+		};
+		4B10C8E81C37466C0077F2E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B10C8C01C37466C0077F2E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B10C8C71C37466C0077F2E4;
+			remoteInfo = dragAndDropLists;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4B10C8C81C37466C0077F2E4 /* dragAndDropLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dragAndDropLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B10C8CB1C37466C0077F2E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4B10C8CD1C37466C0077F2E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B10C8D01C37466C0077F2E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B10C8D21C37466C0077F2E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B10C8D51C37466C0077F2E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B10C8D71C37466C0077F2E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B10C8DC1C37466C0077F2E4 /* dragAndDropListsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dragAndDropListsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B10C8E01C37466C0077F2E4 /* dragAndDropListsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dragAndDropListsTests.swift; sourceTree = "<group>"; };
+		4B10C8E21C37466C0077F2E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B10C8E71C37466C0077F2E4 /* dragAndDropListsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dragAndDropListsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B10C8EB1C37466C0077F2E4 /* dragAndDropListsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dragAndDropListsUITests.swift; sourceTree = "<group>"; };
+		4B10C8ED1C37466C0077F2E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B10C8C51C37466C0077F2E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B10C8D91C37466C0077F2E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B10C8E41C37466C0077F2E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B10C8BF1C37466C0077F2E4 = {
+			isa = PBXGroup;
+			children = (
+				4B10C8CA1C37466C0077F2E4 /* dragAndDropLists */,
+				4B10C8DF1C37466C0077F2E4 /* dragAndDropListsTests */,
+				4B10C8EA1C37466C0077F2E4 /* dragAndDropListsUITests */,
+				4B10C8C91C37466C0077F2E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B10C8C91C37466C0077F2E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B10C8C81C37466C0077F2E4 /* dragAndDropLists.app */,
+				4B10C8DC1C37466C0077F2E4 /* dragAndDropListsTests.xctest */,
+				4B10C8E71C37466C0077F2E4 /* dragAndDropListsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B10C8CA1C37466C0077F2E4 /* dragAndDropLists */ = {
+			isa = PBXGroup;
+			children = (
+				4B10C8CB1C37466C0077F2E4 /* AppDelegate.swift */,
+				4B10C8CD1C37466C0077F2E4 /* ViewController.swift */,
+				4B10C8CF1C37466C0077F2E4 /* Main.storyboard */,
+				4B10C8D21C37466C0077F2E4 /* Assets.xcassets */,
+				4B10C8D41C37466C0077F2E4 /* LaunchScreen.storyboard */,
+				4B10C8D71C37466C0077F2E4 /* Info.plist */,
+			);
+			path = dragAndDropLists;
+			sourceTree = "<group>";
+		};
+		4B10C8DF1C37466C0077F2E4 /* dragAndDropListsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B10C8E01C37466C0077F2E4 /* dragAndDropListsTests.swift */,
+				4B10C8E21C37466C0077F2E4 /* Info.plist */,
+			);
+			path = dragAndDropListsTests;
+			sourceTree = "<group>";
+		};
+		4B10C8EA1C37466C0077F2E4 /* dragAndDropListsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4B10C8EB1C37466C0077F2E4 /* dragAndDropListsUITests.swift */,
+				4B10C8ED1C37466C0077F2E4 /* Info.plist */,
+			);
+			path = dragAndDropListsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B10C8C71C37466C0077F2E4 /* dragAndDropLists */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B10C8F01C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropLists" */;
+			buildPhases = (
+				4B10C8C41C37466C0077F2E4 /* Sources */,
+				4B10C8C51C37466C0077F2E4 /* Frameworks */,
+				4B10C8C61C37466C0077F2E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dragAndDropLists;
+			productName = dragAndDropLists;
+			productReference = 4B10C8C81C37466C0077F2E4 /* dragAndDropLists.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B10C8DB1C37466C0077F2E4 /* dragAndDropListsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B10C8F31C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropListsTests" */;
+			buildPhases = (
+				4B10C8D81C37466C0077F2E4 /* Sources */,
+				4B10C8D91C37466C0077F2E4 /* Frameworks */,
+				4B10C8DA1C37466C0077F2E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B10C8DE1C37466C0077F2E4 /* PBXTargetDependency */,
+			);
+			name = dragAndDropListsTests;
+			productName = dragAndDropListsTests;
+			productReference = 4B10C8DC1C37466C0077F2E4 /* dragAndDropListsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4B10C8E61C37466C0077F2E4 /* dragAndDropListsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B10C8F61C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropListsUITests" */;
+			buildPhases = (
+				4B10C8E31C37466C0077F2E4 /* Sources */,
+				4B10C8E41C37466C0077F2E4 /* Frameworks */,
+				4B10C8E51C37466C0077F2E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B10C8E91C37466C0077F2E4 /* PBXTargetDependency */,
+			);
+			name = dragAndDropListsUITests;
+			productName = dragAndDropListsUITests;
+			productReference = 4B10C8E71C37466C0077F2E4 /* dragAndDropListsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B10C8C01C37466C0077F2E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Brian D Keane";
+				TargetAttributes = {
+					4B10C8C71C37466C0077F2E4 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					4B10C8DB1C37466C0077F2E4 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 4B10C8C71C37466C0077F2E4;
+					};
+					4B10C8E61C37466C0077F2E4 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 4B10C8C71C37466C0077F2E4;
+					};
+				};
+			};
+			buildConfigurationList = 4B10C8C31C37466C0077F2E4 /* Build configuration list for PBXProject "dragAndDropLists" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B10C8BF1C37466C0077F2E4;
+			productRefGroup = 4B10C8C91C37466C0077F2E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B10C8C71C37466C0077F2E4 /* dragAndDropLists */,
+				4B10C8DB1C37466C0077F2E4 /* dragAndDropListsTests */,
+				4B10C8E61C37466C0077F2E4 /* dragAndDropListsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B10C8C61C37466C0077F2E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B10C8D61C37466C0077F2E4 /* LaunchScreen.storyboard in Resources */,
+				4B10C8D31C37466C0077F2E4 /* Assets.xcassets in Resources */,
+				4B10C8D11C37466C0077F2E4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B10C8DA1C37466C0077F2E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B10C8E51C37466C0077F2E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B10C8C41C37466C0077F2E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B10C8CE1C37466C0077F2E4 /* ViewController.swift in Sources */,
+				4B10C8CC1C37466C0077F2E4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B10C8D81C37466C0077F2E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B10C8E11C37466C0077F2E4 /* dragAndDropListsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B10C8E31C37466C0077F2E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B10C8EC1C37466C0077F2E4 /* dragAndDropListsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B10C8DE1C37466C0077F2E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B10C8C71C37466C0077F2E4 /* dragAndDropLists */;
+			targetProxy = 4B10C8DD1C37466C0077F2E4 /* PBXContainerItemProxy */;
+		};
+		4B10C8E91C37466C0077F2E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B10C8C71C37466C0077F2E4 /* dragAndDropLists */;
+			targetProxy = 4B10C8E81C37466C0077F2E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B10C8CF1C37466C0077F2E4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B10C8D01C37466C0077F2E4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4B10C8D41C37466C0077F2E4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B10C8D51C37466C0077F2E4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B10C8EE1C37466C0077F2E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B10C8EF1C37466C0077F2E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B10C8F11C37466C0077F2E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = dragAndDropLists/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fm.playola.dragAndDropLists;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4B10C8F21C37466C0077F2E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = dragAndDropLists/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fm.playola.dragAndDropLists;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4B10C8F41C37466C0077F2E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = dragAndDropListsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fm.playola.dragAndDropListsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dragAndDropLists.app/dragAndDropLists";
+			};
+			name = Debug;
+		};
+		4B10C8F51C37466C0077F2E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = dragAndDropListsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fm.playola.dragAndDropListsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dragAndDropLists.app/dragAndDropLists";
+			};
+			name = Release;
+		};
+		4B10C8F71C37466C0077F2E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = dragAndDropListsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fm.playola.dragAndDropListsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = dragAndDropLists;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		4B10C8F81C37466C0077F2E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = dragAndDropListsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fm.playola.dragAndDropListsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = dragAndDropLists;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B10C8C31C37466C0077F2E4 /* Build configuration list for PBXProject "dragAndDropLists" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B10C8EE1C37466C0077F2E4 /* Debug */,
+				4B10C8EF1C37466C0077F2E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B10C8F01C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropLists" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B10C8F11C37466C0077F2E4 /* Debug */,
+				4B10C8F21C37466C0077F2E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B10C8F31C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropListsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B10C8F41C37466C0077F2E4 /* Debug */,
+				4B10C8F51C37466C0077F2E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B10C8F61C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropListsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B10C8F71C37466C0077F2E4 /* Debug */,
+				4B10C8F81C37466C0077F2E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B10C8C01C37466C0077F2E4 /* Project object */;
+}
