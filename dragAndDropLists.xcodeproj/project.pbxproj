@@ -14,6 +14,10 @@
 		4B10C8D61C37466C0077F2E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B10C8D41C37466C0077F2E4 /* LaunchScreen.storyboard */; };
 		4B10C8E11C37466C0077F2E4 /* dragAndDropListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8E01C37466C0077F2E4 /* dragAndDropListsTests.swift */; };
 		4B10C8EC1C37466C0077F2E4 /* dragAndDropListsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8EB1C37466C0077F2E4 /* dragAndDropListsUITests.swift */; };
+		4B10C8FC1C3836860077F2E4 /* LetterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8FB1C3836860077F2E4 /* LetterTableViewCell.swift */; };
+		4B10C8FE1C3836950077F2E4 /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B10C8FD1C3836950077F2E4 /* NumberTableViewCell.swift */; };
+		4B5F7A801C3ADAE500B057B4 /* CellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F7A7F1C3ADAE500B057B4 /* CellInfo.swift */; };
+		4B5F7A821C3ADB4C00B057B4 /* PlaceholderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F7A811C3ADB4C00B057B4 /* PlaceholderInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		4B10C8E71C37466C0077F2E4 /* dragAndDropListsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dragAndDropListsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B10C8EB1C37466C0077F2E4 /* dragAndDropListsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dragAndDropListsUITests.swift; sourceTree = "<group>"; };
 		4B10C8ED1C37466C0077F2E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B10C8FB1C3836860077F2E4 /* LetterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterTableViewCell.swift; sourceTree = "<group>"; };
+		4B10C8FD1C3836950077F2E4 /* NumberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
+		4B5F7A7F1C3ADAE500B057B4 /* CellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellInfo.swift; path = ../CellInfo.swift; sourceTree = "<group>"; };
+		4B5F7A811C3ADB4C00B057B4 /* PlaceholderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceholderInfo.swift; path = ../PlaceholderInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +105,11 @@
 		4B10C8CA1C37466C0077F2E4 /* dragAndDropLists */ = {
 			isa = PBXGroup;
 			children = (
+				4B5F7A7F1C3ADAE500B057B4 /* CellInfo.swift */,
+				4B5F7A811C3ADB4C00B057B4 /* PlaceholderInfo.swift */,
 				4B10C8CB1C37466C0077F2E4 /* AppDelegate.swift */,
+				4B10C8FB1C3836860077F2E4 /* LetterTableViewCell.swift */,
+				4B10C8FD1C3836950077F2E4 /* NumberTableViewCell.swift */,
 				4B10C8CD1C37466C0077F2E4 /* ViewController.swift */,
 				4B10C8CF1C37466C0077F2E4 /* Main.storyboard */,
 				4B10C8D21C37466C0077F2E4 /* Assets.xcassets */,
@@ -256,8 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B10C8FE1C3836950077F2E4 /* NumberTableViewCell.swift in Sources */,
+				4B10C8FC1C3836860077F2E4 /* LetterTableViewCell.swift in Sources */,
 				4B10C8CE1C37466C0077F2E4 /* ViewController.swift in Sources */,
+				4B5F7A801C3ADAE500B057B4 /* CellInfo.swift in Sources */,
 				4B10C8CC1C37466C0077F2E4 /* AppDelegate.swift in Sources */,
+				4B5F7A821C3ADB4C00B057B4 /* PlaceholderInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +498,7 @@
 				4B10C8F21C37466C0077F2E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B10C8F31C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropListsTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +507,7 @@
 				4B10C8F51C37466C0077F2E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B10C8F61C37466C0077F2E4 /* Build configuration list for PBXNativeTarget "dragAndDropListsUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +516,7 @@
 				4B10C8F81C37466C0077F2E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
