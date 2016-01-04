@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var itemInfo:Dictionary<String,AnyObject>?
     
-    var numbers:Array<String> = ["1",
+    var numbers:Array<AnyObject?> = ["1",
                                 "2",
                                 "3",
                                 "4",
@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 "7",
                                 "8"]
     
-    var letters:Array<String> = ["a",
+    var letters:Array<AnyObject?> = ["a",
                                 "b",
                                 "c",
                                 "d",
@@ -68,6 +68,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         return nil
     }
+    
+    func getElement(tableView:UITableView, indexPath:NSIndexPath) -> AnyObject? {
+        if (tableView == self.numberTableView) {
+            return numbers[indexPath.row]
+        } else if (tableView == self.letterTableView) {
+            return letters[indexPath.row]
+        } else {
+            return nil
+        }
+    }
+    
+    func getModelArray(tableView:UITableView) -> UnsafeMutablePointer<Array<AnyObject?>> {
+        if (tableView == self.numberTableView) {
+            return withUnsafeMutablePointer(&self.numbers, { $0 })
+        } else {
+            return withUnsafeMutablePointer(&self.letters, { $0 })
+        }
+    }
+    
+    func removePlaceholder(tableView:UITableView) {
+        var array = self.getModelArray(tableView)
+        for (var i=0;i<array.memory.count;i++) {
+            if array.memory[i] == nil {
+                array.memory.removeAtIndex(i)
+                break
+            }
+        }
+    }
 
     
     @objc func longPressed(gestureRecognizer:UILongPressGestureRecognizer) {
@@ -105,9 +133,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indexPath = startingTableView!.indexPathForRowAtPoint(startingLocationInTableView)
             
             if indexPath != nil {
-                self.activeCellInfo = CellInfo(startingTableView: startingTableView, startingIndexPath: indexPath)
+                var element = getElement(startingTableView!, indexPath: indexPath!)
+                
+                self.activeCellInfo = CellInfo(startingTableView: startingTableView, startingIndexPath: indexPath, movedElement: self.getElement(startingTableView!, indexPath: indexPath!)!)
+                
                 self.placeholderInfo = PlaceholderInfo(tableView: startingTableView, indexPath: indexPath)
                 
+                // replace model element with nil where placeholder needs to be
+                self.getModelArray(startingTableView!).memory[indexPath!.row] = nil
+
                 let cell = startingTableView!.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
                 
                 My.cellSnapshot  = snapshopOfCell(cell)
@@ -146,6 +180,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 // EXITED list
                 if (hoveredOverTableView == nil) {
                     print("just left view")
+                    
+                    // remove placeholder
+                    removePlaceholder(placeholderInfo!.tableView!)
                     
                     self.placeholderInfo?.tableView?.deleteRowsAtIndexPaths([placeholderInfo!.indexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
                     self.placeholderInfo?.tableView = nil
@@ -228,19 +265,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if tableView == self.letterTableView {
-            print("test")
-        }
-        
-        
         if tableView == self.numberTableView {
+            
             let cell = tableView.dequeueReusableCellWithIdentifier(kNumberTableViewCellIdentifier, forIndexPath: indexPath) as! NumberTableViewCell
-            cell.valueLabel.text = self.numbers[indexPath.row]
+            if self.numbers[indexPath.row] != nil {
+                cell.valueLabel.text = self.numbers[indexPath.row] as? String
+            }
             return cell
         
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(kLetterTableViewCellReuseIdentifier, forIndexPath: indexPath) as! LetterTableViewCell
-            cell.valueLabel.text = self.letters[indexPath.row]
+            
+            if (self.letters[indexPath.row] != nil) {
+                cell.valueLabel.text = self.letters[indexPath.row] as? String
+            }
+            
             return cell
         }
     }

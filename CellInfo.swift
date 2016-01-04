@@ -12,9 +12,11 @@ import UIKit
 struct CellInfo {
     var startingIndexPath:NSIndexPath!
     var startingTableView:UITableView!
+    var movedElement:AnyObject
     
-    init(startingTableView:UITableView!, startingIndexPath:NSIndexPath!) {
+    init(startingTableView:UITableView!, startingIndexPath:NSIndexPath!, movedElement:AnyObject) {
         self.startingIndexPath = startingIndexPath
         self.startingTableView = startingTableView
+        self.movedElement = movedElement
     }
 }
