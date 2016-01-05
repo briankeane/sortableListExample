@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var itemInfo:Dictionary<String,AnyObject>?
     
-    var numbers:Array<AnyObject?> = ["1",
+    var numbersModel:Array<AnyObject?> = ["1",
                                 "2",
                                 "3",
                                 "4",
@@ -24,13 +24,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 "7",
                                 "8"]
     
-    var letters:Array<AnyObject?> = ["a",
+    var lettersModel:Array<AnyObject?> = ["a",
                                 "b",
                                 "c",
                                 "d",
                                 "e",
                                 "f" 
                             ]
+    
+    var numbersDisplay:Array<AnyObject?> = []
+    var lettersDisplay:Array<AnyObject?> = []
     
     @IBOutlet weak var numberTableView: UITableView!
     @IBOutlet weak var letterTableView: UITableView!
@@ -50,6 +53,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.view.addGestureRecognizer(longpressNumber)
         //self.letterTableView.addGestureRecognizer(longpressLetter)
+        
+        self.numbersDisplay = self.numbersModel
+        self.lettersDisplay = self.lettersModel
         
         self.sortableTableViews = [self.numberTableView, self.letterTableView]
         
@@ -71,24 +77,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func getElement(tableView:UITableView, indexPath:NSIndexPath) -> AnyObject? {
         if (tableView == self.numberTableView) {
-            return numbers[indexPath.row]
+            return numbersModel[indexPath.row]
         } else if (tableView == self.letterTableView) {
-            return letters[indexPath.row]
+            return lettersDisplay[indexPath.row]
         } else {
             return nil
         }
     }
     
-    func getModelArray(tableView:UITableView) -> UnsafeMutablePointer<Array<AnyObject?>> {
+    func getModelArrayPointer(tableView:UITableView) -> UnsafeMutablePointer<Array<AnyObject?>> {
         if (tableView == self.numberTableView) {
-            return withUnsafeMutablePointer(&self.numbers, { $0 })
+            return withUnsafeMutablePointer(&self.numbersDisplay, { $0 })
         } else {
-            return withUnsafeMutablePointer(&self.letters, { $0 })
+            return withUnsafeMutablePointer(&self.lettersDisplay, { $0 })
         }
     }
     
     func removePlaceholder(tableView:UITableView) {
-        var array = self.getModelArray(tableView)
+        var array = self.getModelArrayPointer(tableView)
         for (var i=0;i<array.memory.count;i++) {
             if array.memory[i] == nil {
                 array.memory.removeAtIndex(i)
@@ -103,25 +109,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let state = longPress.state
         
         // figure is there a tableview there?
-        var startingTableView:UITableView? = tableViewPressed(longPress.locationInView(self.view))
+        var hoveredOverTableView:UITableView? = tableViewPressed(longPress.locationInView(self.view))
         
-        let pressedLocationInTableView = longPress.locationInView(startingTableView)
+        let pressedLocationInTableView = longPress.locationInView(hoveredOverTableView)
         let pressedLocationInParentView = longPress.locationInView(self.view)
+        
         
         struct My {
             static var cellSnapshot : UIView? = nil
         }
         
         var newIndexPath:NSIndexPath?
-        var hoveredOverTableView:UITableView?
-        
-        for (var i=0;i<self.sortableTableViews.count;i++) {
-            newIndexPath = self.sortableTableViews[i].indexPathForRowAtPoint(pressedLocationInTableView)
-            if newIndexPath != nil {
-                hoveredOverTableView = self.sortableTableViews[i]
-                break
-            }
-        }
         
         switch state {
         case UIGestureRecognizerState.Began:
@@ -135,12 +133,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if indexPath != nil {
                 var element = getElement(startingTableView!, indexPath: indexPath!)
                 
+                // make copies of all lists
+                self.numbersDisplay = self.numbersModel
+                self.lettersDisplay = self.lettersModel
+    
                 self.activeCellInfo = CellInfo(startingTableView: startingTableView, startingIndexPath: indexPath, movedElement: self.getElement(startingTableView!, indexPath: indexPath!)!)
                 
-                self.placeholderInfo = PlaceholderInfo(tableView: startingTableView, indexPath: indexPath)
+                self.placeholderInfo = PlaceholderInfo(tableView: startingTableView, indexPath: indexPath, originalCenter: startingLocationInParentView)
                 
                 // replace model element with nil where placeholder needs to be
-                self.getModelArray(startingTableView!).memory[indexPath!.row] = nil
+                self.getModelArrayPointer(startingTableView!).memory[indexPath!.row] = nil
 
                 let cell = startingTableView!.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
                 
@@ -174,7 +176,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
         case UIGestureRecognizerState.Changed:
-            // chaned list
+            var newIndexPath:NSIndexPath? = nil
+            if hoveredOverTableView != nil {
+                newIndexPath = hoveredOverTableView?.indexPathForRowAtPoint(pressedLocationInTableView)
+            }
+            
+            // changed list
             if (hoveredOverTableView != self.placeholderInfo?.tableView) {
                 
                 // EXITED list
@@ -190,12 +197,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 // ELSE ENTERED list
                 } else {
+                    
                     print("just entered \(hoveredOverTableView)")
                     placeholderInfo?.tableView = hoveredOverTableView
                     placeholderInfo?.indexPath = newIndexPath
+                    
+                    let arrayPointer = self.getModelArrayPointer(hoveredOverTableView!)
+                    arrayPointer.memory.insert(nil, atIndex: newIndexPath!.row)
+                    
+                    hoveredOverTableView!.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
             
-            } else {
+            } else if (hoveredOverTableView != nil) {
                 // IF moved within list
                 if (newIndexPath != placeholderInfo?.indexPath) {
                     print("changed IndexPath.row to \(newIndexPath?.row)")
@@ -218,20 +231,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             // if let go outside of any tableViewCell, just put it back
             if (hoveredOverTableView == nil) {
-                for (var i=0;i<self.sortableTableViews.count;i++) {
-                    self.sortableTableViews[i].reloadData()
-                }
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    let finalPoint = self.placeholderInfo?.originalCenter
+                    My.cellSnapshot!.center = finalPoint!
+                    My.cellSnapshot!.transform = CGAffineTransformIdentity
+                    My.cellSnapshot!.alpha = 0.0
+                    }, completion: { (finished) -> Void in
+                        if finished {
+                            self.placeholderInfo = nil
+                            My.cellSnapshot!.removeFromSuperview()
+                            My.cellSnapshot = nil
+                            self.cleanup()
+                        }
+                })
+                
+                return
             } else {
-                // call received 
+                // cell received 
                 self.receivedItem(placeholderInfo!.indexPath!, receivingTable: hoveredOverTableView!)
+                self.cleanup()
             }
             
             // place where hidden
-            let cell = self.activeCellInfo!.startingTableView.cellForRowAtIndexPath(self.activeCellInfo!.startingIndexPath!) as UITableViewCell!
+            let cell = self.placeholderInfo!.tableView!.cellForRowAtIndexPath(self.placeholderInfo!.indexPath!) as UITableViewCell!
             cell.hidden = false
             cell.alpha = 0.0
             UIView.animateWithDuration(0.25, animations: { () -> Void in
-                My.cellSnapshot!.center = cell.center
+                let finalPoint = self.view.convertPoint(cell.center, fromView: self.placeholderInfo!.tableView!)
+                My.cellSnapshot!.center = finalPoint
                 My.cellSnapshot!.transform = CGAffineTransformIdentity
                 My.cellSnapshot!.alpha = 0.0
                 cell.alpha = 1.0
@@ -246,8 +273,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func receivedItem(newIndexPath:NSIndexPath, receivingTable:UITableView) {
-        print("received at index: \(newIndexPath.row)")
+        if self.activeCellInfo?.startingTableView == self.numberTableView {
+            self.numbersModel.removeAtIndex(self.activeCellInfo!.startingIndexPath.row)
+        } else {
+            self.lettersModel.removeAtIndex(self.activeCellInfo!.startingIndexPath.row)
+        }
         
+        if receivingTable == self.numberTableView {
+            self.numbersModel.insert(self.activeCellInfo?.movedElement, atIndex: newIndexPath.row)
+        } else {
+            self.lettersModel.insert(self.activeCellInfo?.movedElement, atIndex: newIndexPath.row)
+        }
+        
+        print("received at index: \(newIndexPath.row)")
+    }
+    
+    func cleanup() {
+        self.lettersDisplay = self.lettersModel
+        self.numbersDisplay = self.numbersModel
+        self.letterTableView.reloadData()
+        self.numberTableView.reloadData()
+        print("numbers")
+        print(self.numbersModel)
+        print("letters")
+        print(lettersModel)
     }
     
     func snapshopOfCell(inputView: UIView) -> UIView {
@@ -268,16 +317,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if tableView == self.numberTableView {
             
             let cell = tableView.dequeueReusableCellWithIdentifier(kNumberTableViewCellIdentifier, forIndexPath: indexPath) as! NumberTableViewCell
-            if self.numbers[indexPath.row] != nil {
-                cell.valueLabel.text = self.numbers[indexPath.row] as? String
+            if self.numbersModel[indexPath.row] != nil {
+                cell.valueLabel.text = self.numbersModel[indexPath.row] as? String
+            } else {
+                cell.hidden = true
             }
             return cell
         
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(kLetterTableViewCellReuseIdentifier, forIndexPath: indexPath) as! LetterTableViewCell
             
-            if (self.letters[indexPath.row] != nil) {
-                cell.valueLabel.text = self.letters[indexPath.row] as? String
+            if (self.lettersDisplay[indexPath.row] != nil) {
+                cell.valueLabel.text = self.lettersDisplay[indexPath.row] as? String
+            } else {
+                cell.hidden = true
             }
             
             return cell
@@ -290,9 +343,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.numberTableView {
-            return self.numbers.count
+            return self.numbersDisplay.count
         } else {
-            return self.letters.count
+            return self.lettersDisplay.count
         }
     }
 
